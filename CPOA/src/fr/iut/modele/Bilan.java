@@ -15,6 +15,11 @@ public class Bilan extends Observable {
 		System.out.println("dans methode setChange");
 	}
 
+	public void addObserver(IObserver graphe1) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }
