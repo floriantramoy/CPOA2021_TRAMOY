@@ -1,13 +1,18 @@
 package fr.iut.miscs;
 
-import fr.iut.interfaces.IObserver;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Observable{
+import fr.iut.interfaces.IObserver;
+
+public class Observable {
+	// block de variables
 	
+	private List<IObserver> observers;
 	private int num;
+	
+	// block getter/setters
 	
 	public int getNum() {
 		return num;
@@ -16,30 +21,43 @@ public class Observable{
 	public void setNum(int num) {
 		this.num = num;
 	}
-
-
-	private List<IObserver> observers;
 	
+	public void setObservers(List<IObserver> observers) {
+		this.observers = observers;
+	}
+	
+	// Block de constructeurs
+	
+	public Observable(List<IObserver> observers) {
+		this.observers = observers;
+	}
 	
 	public Observable() {
 		// initialisation de la collection
-		System.out.println("Dans constructeur de observable");
+		System.out.println("Dans constructeur de Observable");
 		observers = new ArrayList<>();
-	}
-	
-	public void notify1() {
-		System.out.println("dans methode notify1");
 	}
 
 	public List<IObserver> getObservers() {
 		return observers;
 	}
+	
+	// Block de méthodes
 
-	public void setObservers(List<IObserver> observers) {
-		this.observers = observers;
+	public void notify1() {
+		System.out.println("dans méthode notify1");
+		for (IObserver iobserver : observers) {
+		//iobserver.update(this);
+		}
+		
+		Iterator<IObserver> it = this.observers.iterator();
+		while (it.hasNext()) {
+			it.next().update(this);
+		}
 	}
-
-
-
+	
+	public void addObserver(IObserver o) {
+		this.observers.add(o);
+	}
 
 }
