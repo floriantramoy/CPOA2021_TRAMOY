@@ -7,14 +7,14 @@ import java.util.List;
 
 public class Observable{
 	
-	private int num;
+	private int numero;
 	
-	public int getNum() {
-		return num;
+	public int getnumero() {
+		return numero;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setnumero(int numero) {
+		this.numero = numero;
 	}
 
 
@@ -39,7 +39,7 @@ public class Observable{
 		this.observers = observers;
 	}
 
-
+	
 
 
 }
