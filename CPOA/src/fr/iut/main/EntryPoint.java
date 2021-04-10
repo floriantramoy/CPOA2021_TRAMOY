@@ -15,7 +15,7 @@ public class EntryPoint {
 		Observable observable = new Observable();
 		System.out.println("----------------------------------------");
 		Bilan bilan = new Bilan();
-		bilan.setNum(1);
+		bilan.setnumero(1);
 		System.out.println("----------------------------------------");
 		IObserver graphe1 = new UIWindowsGraphe(1);
 		IObserver graphe2 = new UIPhoneGraphe(2);
