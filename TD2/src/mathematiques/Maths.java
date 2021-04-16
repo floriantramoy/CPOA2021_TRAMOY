@@ -19,20 +19,37 @@ public class Maths implements IMaths {
 
 	@Override
 	public int multiplication(int a, int b) {
-		// ecrire l'implémentation de multiplication en utilisant que des additions
-		// Tester tous les cas possibles (positifs, négatifs, 0)
-		int c = 0;
-		if (a >= b){	
-			for(int i=0; i < b; i++) {
-				addition(c,a);
-		} }else if(a < b){
-			for(int i=0; i < a; i++) {
-				addition(c,b);
-		}
+
+		int resultat = 0;
+
+		if (a<0 && b<0) {
+			if (Math.abs(a) < Math.abs(b)) {
+				for (int i=0; i<Math.abs(a); i++) {
+					resultat = addition(resultat, -b);
+				}
+			} else {
+				for (int i=0; i<Math.abs(b); i++) {
+					resultat = addition(resultat, -a);
+				}
+			}
+
+		} else {
 			
-	}
-			
-		return c;
+			if (a < 0) {
+				for (int i=0; i<Math.abs(b); i++) {
+					resultat = addition(resultat, a);
+				}
+			} else {
+				for (int i=0; i<Math.abs(a); i++) {
+					resultat = addition(resultat, b);
+				}
+			}
+
+
+		} 
+
+		return resultat;
+		 
 	}
 	@Override
 	public double division(int a, int b) throws MathsExceptions {
@@ -44,7 +61,6 @@ public class Maths implements IMaths {
 			return a / b;
 
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			throw new MathsExceptions(e.getMessage());
 		}
 
